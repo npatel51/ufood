@@ -1,0 +1,22 @@
+{
+  "name": "FoodBaby",
+  "version": "1.0.0",
+  "description": "Map based webapp for hungry Gainesville residents",
+  "main": "server.js",
+  "author": "Team 1",
+  "repository": "https://github.com/npatel51/foodbabyteam1.git",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mapbox-gl": "^0.50.0-beta.1",
+    "mocha": "^5.2.0",
+    "mongoose": "^4.2.9",
+    "morgan": "^1.6.1",
+    "request": "^2.67.0"
+  },
+  "devDependencies": {
+    "should": "^7.1.1",
+    "supertest": "^1.1.0"
+  }
+}
