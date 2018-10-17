@@ -9,13 +9,15 @@ mongoose.connect(mongoURL, function(err){
 
 var eventSchema = new Schema({
   title:        { type: String, required: true }, 
-  date:         { type: Date, default: Date.now }, 
-  description:  String,
-  address:      String, 
+  date:         { type: Date, default: Date.now, required:true}, 
+  description:  { type: String },
+  address:      { type:String, required:true },
   coordinates:  {
-                latitude: Number, 
-                longitude: Number
+                  latitude: Number, 
+                  longitude: Number
                 },
+  type_of_food: { type:String, required:true},
+
   //TODO: add entries for food types
   created_at:   Date,
   updated_at:   Date

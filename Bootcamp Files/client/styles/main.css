@@ -1,21 +1,10 @@
-#searchBar {
-  margin: 15px 10px;
+#map{
+  position: absolute;
+  width: 60%;
 }
 
-#addForm {
-  margin: 15px 0px 15px 0px;
-}
-
-.tableWrapper {
-  max-height: 400px;
-  overflow: auto;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: normal;
-}
-
-.jumbotron p{
-  font-weight:normal
+.panel{
+  position: absolute;
+  float: right;
+  width: 40%;
 }
