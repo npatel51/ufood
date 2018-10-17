@@ -7,7 +7,14 @@ body {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 100%;
+    width: 63%;
+  }
+
+  .form-Wrapper{
+    position: relative;
+    width: 35%;
+    margin:15px;
+    float: right;
   }
 .marker {
     background-image: url('mapbox-icon.png');
