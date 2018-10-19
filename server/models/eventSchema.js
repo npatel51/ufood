@@ -1,5 +1,11 @@
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
+    confit = require('./config');
+
+const mongoURL = 'mongodb://admin:ABC123@ds037468.mlab.com:37468/foodbaby1';
+mongoose.connect(mongoURL, function(err){
+  if(err) throw err;
+});
 
 var eventSchema = new Schema({
   title:        { type: String, required: true }, 
