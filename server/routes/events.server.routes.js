@@ -16,7 +16,7 @@ router.route('/api/events')
   .get(events.list)
   .post(events.create);
 
-// get specific listing
+// get specific event
 router.route('/api/events/:eventID')
   .get(events.read)
   .put(events.update)
@@ -39,12 +39,12 @@ router.route('/:eventID')
 
   Say we make an example request to '/events/566372f4d11de3498e2941c9'
 
-  The request handler will first find the specific listing using this 'eventsById' 
+  The request handler will first find the specific event using this 'eventsById' 
   middleware function by doing a lookup to ID '566372f4d11de3498e2941c9' in the Mongo database, 
-  and bind this listing to the request object.
+  and bind this event to the request object.
 
   It will then pass control to the routing function specified above, where it will either 
-  get, update, or delete that specific listing (depending on the HTTP verb specified)
+  get, update, or delete that specific event (depending on the HTTP verb specified)
  */
 router.param('eventID', events.eventByID);
 

@@ -43,7 +43,7 @@ exports.update = function(req, res) {
 /* Delete a event */
 exports.delete = function(req, res) {
   var event = req.event;
-  Event.remove({code:event._id},function (err, event) {
+  Event.remove({_id:event._id},function (err, event) {
     if (err)  return res.status(500).send(err);
     // document deleted succesfully 
     return res.status(200).send();
@@ -52,7 +52,6 @@ exports.delete = function(req, res) {
 
 /* Retreive all the events by time*/
 exports.list = function(req, res) {
-  console.log("called");
   Event.find().sort().exec(function(err,events){
     if (err) {
       res.status(404).send(JSON.stringify({'message':'Something went wrong on our side :('}));
@@ -71,8 +70,7 @@ exports.list = function(req, res) {
 exports.eventByID = function(req, res, next, id) {
   Event.findById(id).exec(function(err, event) {
     if(err) {
-      console.log('error');
-      res.status(400).redirect('/');
+       res.status(400).redirect('/'); //redirect to home page
     } else {
       req.event = event;
       next();

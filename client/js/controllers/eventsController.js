@@ -47,9 +47,5 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
       });
     
     };
-
-    $scope.showDetails = function(index) {
-        $scope.detailedInfo = $scope.events[index];
-    };
   }
 ]);
