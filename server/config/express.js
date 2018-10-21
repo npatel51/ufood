@@ -8,8 +8,13 @@ var path = require('path'),
 
 module.exports.init = function() {
   //connect to database
-  mongoose.connect(config.db.uri, { useMongoClient: true });
-
+  mongoose.connect(config.db.uri, {useMongoClient:true});
+  const db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'could not connect to db'));
+  db.once('open', function callback () {
+    console.log('Connected to db, Yay!');
+    return;
+  });
   //initialize app
   var app = express();
 
@@ -22,15 +27,16 @@ module.exports.init = function() {
   
   /**TODO
   Serve static files */
-  app.use(express.static('client'));
-
+  app.use(express.static('client')); // serve all static files available under client folder
+  
   /**TODO 
   Use the listings router for requests to the api */
-  app.use('/api/listings/', listingsRouter);
+  app.use(listingsRouter);
+
 
   /**TODO 
   Go to homepage for all routes not specified */
-  app.get('*', function (req, res) {
+  app.use('*', function(req, res) {
     res.redirect('/');
   });
 
