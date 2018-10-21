@@ -13,7 +13,7 @@ var eventSchema = new Schema({
   description:  { type: String },
   address:      { type:String, required:true },
   coordinates:  { latitude: Number,  longitude: Number},
-  typeOfFood: { type:String, required:true},
+  typeOfFood:   { type:String, required:true},
 
   //TODO: add entries for food types
   created_at:   Date,
