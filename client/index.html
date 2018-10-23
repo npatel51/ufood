@@ -44,13 +44,13 @@
           
           <div class="form-group">
             <!-- add a dropdown for type of food-->
-              <label> Type of Food </label>
-              <input type="text" class="form-control" style="text-transform: capitalize" placeholder="Vegan" ng-model="address" required>
+            <label> Type of Food </label>
+              <input type="text" class="form-control"  placeholder="Vegan" ng-model="typeOfFood" required>
             <label> Address </label>
-            <input type="text" class="form-control" style="text-transform: capitalize" placeholder=" 123 Main St, Gainsville,FL,32811" ng-model="address" required>
+            <input type="text" class="form-control" placeholder=" 123 Main St, Gainsville,FL,32811" ng-model="address" required>
           </div>  
 
-          <!-- coordinates are optional
+          <!-- coordinates are optional -->
           <div class="row"> 
             <div class="form-group col-md-6">
               <label> Latitude(optional) </label>
@@ -61,7 +61,7 @@
               <input type="number" class="form-control" placeholder="23.76" ng-model="buildingLongitude" step="any">
             </div>
           </div>
-           -->
+          
        
           <!-- validate form entry and add listing -->
           <input type="submit" class="btn btn-success">
