@@ -1,10 +1,10 @@
 #map{
-  /*position: absolute;*/
-  width: 50%;
+  position: absolute;
+  width: 60%;
 }
 
 .panel{
   position: absolute;
   float: right;
-  width: 50%;
+  width: 40%;
 }
