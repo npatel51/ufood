@@ -1,0 +1,10 @@
+#map{
+  /*position: absolute;*/
+  width: 50%;
+}
+
+.panel{
+  position: absolute;
+  float: right;
+  width: 50%;
+}
