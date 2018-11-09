@@ -53,3 +53,10 @@ geojson.features.forEach(function (marker) {
     .addTo(map);
 
 });
+
+// geocoder auto-complete address
+var geocoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken
+});
+
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));

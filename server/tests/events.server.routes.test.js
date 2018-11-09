@@ -1,7 +1,7 @@
 var should = require('should'), 
     request = require('supertest'), 
     express = require('../config/express'), 
-    Listing = require('../models/listings.server.model.js');
+    Listing = require('../models/events.server.model.js');
 
 /* Global variables */
 var app, agent, listing, id;

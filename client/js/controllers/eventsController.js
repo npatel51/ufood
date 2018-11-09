@@ -3,6 +3,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
     /* Get all the events, then bind it to the scope */
     Events.getAll().then(function(response) {
       $scope.events = response.data;
+      console.log($scope.events);
     }, function(error) {
       console.log('Unable to retrieve events:', error);
     });
@@ -18,9 +19,13 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
         time:$scope.time,         
         description:$scope.description,  
         address:$scope.address,      
-        typeOfFood:$scope.typeOfFood 
+        typeOfFood:$scope.typeOfFood,
+        coordinates:{ 
+            latitude:$scope.longitude, 
+            longitude:$scope.latitude 
+        } 
        };  
-
+       
     Events.create(newEvent).then(function(response){
         Events.getAll().then(function(response) {
           $scope.events = response.data;
