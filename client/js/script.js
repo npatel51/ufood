@@ -1,4 +1,4 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiZm9vZGJhYnkxIiwiYSI6ImNqbjRuOXluYTByN3Uza3Fvc2xuOTAzaXMifQ.E2kQtGJ19Y6ofltNnZaa3w';
+/*mapboxgl.accessToken = 'pk.eyJ1IjoiZm9vZGJhYnkxIiwiYSI6ImNqbjRuOXluYTByN3Uza3Fvc2xuOTAzaXMifQ.E2kQtGJ19Y6ofltNnZaa3w';
 
 var map = new mapboxgl.Map({
   container: 'map',
@@ -6,8 +6,8 @@ var map = new mapboxgl.Map({
   center: [-82.3, 29.6],
   zoom: 10
 });
-
 // code from the next step will go here!
+
 var geojson = {
   type: 'FeatureCollection',
   features: [{
@@ -58,5 +58,5 @@ geojson.features.forEach(function (marker) {
 var geocoder = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken
 });
-
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+*/
