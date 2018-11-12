@@ -120,6 +120,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
     };
 
      $scope.showDetails = function(index) {
+      $scope.showDetail = true;
       $scope.detailedInfo = $scope.events[index];
     };
   }

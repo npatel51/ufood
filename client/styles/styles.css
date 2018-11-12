@@ -22,6 +22,38 @@ body {
     float: right;
     */
   }
+
+  #searchBar {
+    margin: 15px 10px;
+  }
+  
+  .tableWrapper {
+    max-height: 440px;
+    overflow: auto;
+  }
+  
+  .detailedInfoWrapper{
+    margin-top:10px;
+  }
+  
+  .listingForm{
+    margin:8px;
+  }
+  
+  .container .jumbotron, .container-fluid .jumbotron {
+    padding-right:9px;
+    padding-left:9px;
+  }
+  
+  .jumbotron {
+    padding: 3px;
+  }
+  
+
+#listing{
+    margin-top:29px; 
+}
+
 .marker {
     background-image: url('mapbox-icon.png');
     background-size: cover;
