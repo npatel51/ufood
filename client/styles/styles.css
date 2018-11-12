@@ -77,5 +77,14 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+#navigation{
+    top:0px;
+}
+
+#listing {
+    display: none;
+    top: 50px;
+}
+
 
   
