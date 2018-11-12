@@ -6,6 +6,11 @@ mongoose.connect(mongoURL, function(err){
   if(err) throw err;
 });
 */
+
+
+/* Constraints for an even to be listed also has type of food for each listing */
+
+
 var eventSchema = new Schema({
   title:        { type: String, required: true }, 
   date:         { type: Date, default: Date.now, required:true}, 
@@ -29,6 +34,8 @@ eventSchema.pre('save', function(next) {
   }
   next();
 });
+
+/* New event created */
 
 var Event = mongoose.model('Event', eventSchema);
 module.exports = Event;
