@@ -1,9 +1,12 @@
+//Events conroller
+
 angular.module('events').controller('EventsController', ['$scope', 'Events', 
   function($scope, Events) {
 
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9vZGJhYnkxIiwiYSI6ImNqbjRuOXluYTByN3Uza3Fvc2xuOTAzaXMifQ.E2kQtGJ19Y6ofltNnZaa3w';
 
+    //Map
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v9',
@@ -84,6 +87,8 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
                   } 
                 }; 
 
+          
+          //New Event
               console.log(newEvent);
               Events.create(newEvent).then(function(response){
                   Events.getAll().then(function(response) {
@@ -104,7 +109,8 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
         });
    
     };
-
+    
+//Delete Event
     $scope.deleteEvent = function($event,index) {
       $event.stopPropagation();
       Events.delete($scope.events[index]).then(function(response){
