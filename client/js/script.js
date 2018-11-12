@@ -60,3 +60,17 @@ var geocoder = new MapboxGeocoder({
 });
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 */
+
+function toggle(){
+  var x = document.getElementById("toggle");
+  var map = document.getElementById("map");
+  var listView = document.getElementById("listing");
+  if(map.style.display === "none"){
+    map.style.display = "block";
+    listView.style.display = "none";
+  }
+  else{
+    map.style.display = "none";
+    listView.style.display = "block";
+  }
+}
