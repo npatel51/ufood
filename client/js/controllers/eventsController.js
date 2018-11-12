@@ -36,7 +36,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
         .setPopup(new mapboxgl.Popup({
             offset: 10
           }) // add popups
-          .setHTML('<h3>' + event.title + '</h3><p>' + event.description + '</p>'))
+          .setHTML('<h3>' + event.title + '</h3><p>' + event.date.slice(0,10) + ' ' + event.time.slice(11,19) + '</p>' + event.description + '</p>'))
         .addTo(map);
     });
     }
