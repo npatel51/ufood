@@ -18,7 +18,8 @@
 </head>
 
 <body ng-app="foodbabyApp" ng-controller="EventsController">
-  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+<div id="navigation">
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="#">
       <img src="styles/ufood logo-03.svg" width="93" height="30" alt="">
     </a>
@@ -26,19 +27,19 @@
       aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Map View<span class="sr-only">(current)</span></a>
+          <a class="nav-link" id="toggle" href="#" onclick="toggle()">Map View<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" a href="EventList.html">List View</a>
+          <a class="nav-link"  id="toggle" href="#" onclick="toggle()"> List View</a>
         </li>
       </ul>      
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#myModal">Add Event</button>      
     </div>
   </nav>
+</div>
 
   <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -118,10 +119,54 @@
   
     </div>
   </div>
-  
+
   <main role='main' class="container">
       <div class="container col-md-12" id='map'></div>
   </main>
+
+  <div class="container" id ="listing">
+      <div class="row">
+        <h1>Events</h1>
+      </div>
+      <div class="row" ng-controller="EventsController">
+        <div class="col-md-6">
+          <div class="input-group" id="searchBar">
+            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" class="form-control" placeholder="Search" ng-model="query">
+          </div>
+          <div class="tableWrapper">
+            <table class="table table-striped table-hover">
+              <tr>
+                <th>Date</th>
+                <th>Title</th>
+                <th></th>
+              </tr>
+              <tr ng-repeat="event in events | filter: query" ng-click="showDetails(events.indexOf(event))">
+                <td>{{event.date}}</td>
+                <td>{{event.title}}</td>
+                <td ng-click="deleteEvent(events.indexOf(event))"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="jumbotron">
+            <h4>{{detailedInfo.title}}</h4>
+            <p>Description: {{detailedInfo.description}}</p>
+            <p>Date: {{detailedInfo.date}}</p>
+            <p>Time: {{detailedInfo.time}}</p>
+            <p>Type of Food: {{detailedInfo.typeOfFood}}</p>
+            <p>Address: {{detailedInfo.address}}</p>
+            <p>Latitude: {{detailedInfo.latitude}}</p>
+            <p>Longitude: {{detailedInfo.longitude}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
 
   <!-- mpabox api -->
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
