@@ -21,6 +21,8 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
     map.addControl(geocoder);
     // code from the next step will go here!
     
+    
+    //Function to add event to the map
     function addEventToMap(){
     console.log($scope.events);
     
@@ -54,8 +56,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
     $scope.detailedInfo = undefined;
     $scope.showDetail = false;
     
-    // will be used to show selected diet specification and in form submission
-    // must validate the type has been selected
+
     $scope.foodType = "Select Diet Specification";
     $scope.foodTypes = ["Vegan","Vegetarian","Gluten Free","Nut Free","Paleo","Kosher","Halal","Not decided yet","Not decided yet,probably pizza"]; // add food type as needed here 
 
@@ -63,7 +64,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
       $scope.foodType = item;
     }
 
-    /* Add event to the db and update the events on the map/list view */
+    
     $scope.addEvent = function() {
        // translate address into geo-coordinates
 
