@@ -29,6 +29,9 @@ describe('Event Schema Unit Tests', function() {
      */
     this.timeout(10000);
 
+      /* Requirements for an event to save properly 
+      */
+      
     it('saves properly when required properties are provided', function(done){
       new Event({
         title: event.title, 
@@ -42,6 +45,8 @@ describe('Event Schema Unit Tests', function() {
         done();
       });
     });
+      
+     
 
     it('saves properly when all properties provided', function(done){
       new Event(event).save(function(err, event){
@@ -60,6 +65,8 @@ describe('Event Schema Unit Tests', function() {
       })
     });
 
+      /* Error when address not provided */
+      
     it('throws an error when address is not provided', function(done){
       new Event({
         title: event.title, 
