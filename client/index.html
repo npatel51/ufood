@@ -20,7 +20,7 @@
 <body ng-app="foodbabyApp" ng-controller="EventsController">
 <div id="navigation">
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="/#">
+    <a class="navbar-brand" href="/">
       <img src="styles/ufood logo-03.svg" width="93" height="30" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -59,17 +59,22 @@
                   <input type="text" class="form-control" ng-model="title" required >
                   <br>
                   <label>Description</label>
-                  <input type="text" class="form-control" ng-model="description" value ="" required>
+                  <input type="text" class="form-control" ng-model="description" required>
                 </div>
       
-                <div class="row"> 
-                  <div class="form-group col-md-6">
+                <div class="form-group"> 
                     <label>Date</label>
                     <input type="date" class="form-control" ng-model="date" required>
+                </div>
+
+                <div class="row"> 
+                  <div class="form-group col-md-6">
+                    <label>Start Time</label>
+                    <input id="startTime" type="time" class="form-control" ng-model="startTime" required>
                   </div>
                   <div class="form-group col-md-6">
-                    <label>Time</label>
-                    <input type="time" class="form-control" ng-model="time" required>
+                    <label>End Time</label>
+                    <input id="endTime" type="time" class="form-control" ng-model="endTime" required>
                   </div>
                 </div>
                 
