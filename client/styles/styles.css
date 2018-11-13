@@ -68,10 +68,10 @@ body {
     display: block;
     margin-top: 5px;
     height: 200px;
-    overflow: auto;
   }
   
   .mapboxgl-popup-content {
+    overflow: auto;
     text-align: center;
     font-family: 'Open Sans', sans-serif;    
   }  
