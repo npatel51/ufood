@@ -41,7 +41,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
         .setPopup(new mapboxgl.Popup({
             offset: 10
           }) // add popups
-          .setHTML('<h3>' + event.title + '</h3><p>' + event.description + '</p>'))
+          .setHTML('<h3>' + event.title + '</h3><p>' + new Date(event.date).toLocaleDateString() + '</p><p>' + event.startTime + '-' + event.endTime + '</p><p>' + event.description + '</p><p>' + event.typeOfFood + '</p><p>' + event.address + '</p>'))
         .addTo(map);
     });
     }
@@ -65,6 +65,11 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
     }
 
     
+    function formatTime(time){
+      var [hour,min] = time.split(":");
+      return (hour%12+12*(hour%12==0))+":"+min+""+(hour >= 12 ? 'PM' : 'AM');
+    }
+
     $scope.addEvent = function() {
        // translate address into geo-coordinates
 
@@ -73,12 +78,12 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
         // res is the http response, including: status, headers and entity properties
         if( !err ){
                 var coordinates = data.features[0].center;
-
                 //create a new event object
                 let newEvent = {
                   title:$scope.title,
                   date:$scope.date,        
-                  time:$scope.time,         
+                  startTime:formatTime(document.getElementById("startTime").value),
+                  endTime:formatTime(document.getElementById("endTime").value),       
                   description:$scope.description,  
                   address:$scope.address,      
                   typeOfFood:($scope.foodType == "Select Diet Specification"?"Not specified":$scope.foodType),
@@ -91,6 +96,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
           
           //New Event
               console.log(newEvent);
+
               Events.create(newEvent).then(function(response){
                   Events.getAll().then(function(response) {
                     $scope.events = response.data;
