@@ -65,12 +65,16 @@ body {
 
 .mapboxgl-popup {
     max-width: 200px;
+    display: block;
+    margin-top: 5px;
+    height: 200px;
+    overflow: auto;
   }
   
   .mapboxgl-popup-content {
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
-  }
+    font-family: 'Open Sans', sans-serif;    
+  }  
 
   .modal {
     display: none; /* Hidden by default */

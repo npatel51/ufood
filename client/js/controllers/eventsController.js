@@ -38,8 +38,8 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
       // make a marker for each feature and add to the map
       new mapboxgl.Marker(el)
         .setLngLat([event.coordinates.longitude,event.coordinates.latitude])
-        .setPopup(new mapboxgl.Popup({
-            offset: 10
+        .setPopup(new mapboxgl.Popup({ className:'popup',
+            offset: 10, maxHeight: 10
           }) // add popups
           .setHTML('<h3>' + event.title + '</h3><p>' + new Date(event.date).toLocaleDateString() + '</p><p>' + event.startTime + '-' + event.endTime + '</p><p>' + event.description + '</p><p>' + event.typeOfFood + '</p><p>' + event.address + '</p>'))
         .addTo(map);
