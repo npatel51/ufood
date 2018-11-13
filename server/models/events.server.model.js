@@ -14,7 +14,8 @@ mongoose.connect(mongoURL, function(err){
 var eventSchema = new Schema({
   title:        { type: String, required: true }, 
   date:         { type: Date, default: Date.now, required:true}, 
-  time:         { type:String, required:true},
+  startTime:    { type:String, required:true},
+  endTime:      { type:String, required:true},
   description:  { type: String },
   address:      { type:String, required:true },
   coordinates:  { latitude: Number,  longitude: Number},
