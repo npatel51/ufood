@@ -39,9 +39,9 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
       new mapboxgl.Marker(el)
         .setLngLat([event.coordinates.longitude,event.coordinates.latitude])
         .setPopup(new mapboxgl.Popup({ className:'popup',
-            offset: 10, maxHeight: 10
+            offset: 10, maxHeight: 14
           }) // add popups
-          .setHTML('<h3>' + event.title + '</h3><p>' + new Date(event.date).toLocaleDateString() + '</p><p>' + event.startTime + '-' + event.endTime + '</p><p>' + event.description + '</p><p>' + event.typeOfFood + '</p><p>' + event.address + '</p>'))
+          .setHTML('<h6>' + event.title + '</h6><p>' + new Date(event.date).toLocaleDateString() + '</p><p>' + event.startTime + '-' + event.endTime + '</p><p>' + event.description + '</p><p>' + event.typeOfFood + '</p><p>' + event.address + '</p>'))
         .addTo(map);
     });
     }
