@@ -24,7 +24,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
     
     //Function to add event to the map
     function addEventToMap(){
-    console.log($scope.events);
+  //  console.log($scope.events);
     
     var geojson = {
       type: 'FeatureCollection',
@@ -41,13 +41,16 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
         .setPopup(new mapboxgl.Popup({ className:'popup',
             offset: 10, maxHeight: 14
           }) // add popups
-          .setHTML('<h6>' + event.title + '</h6><p>' + new Date(event.date).toLocaleDateString() + '</p><p>' + event.startTime + '-' + event.endTime + '</p><p>' + event.description + '</p><p>' + event.typeOfFood + '</p><p>' + event.address + '</p>'))
+          .setHTML('<h6>' + event.title + '</h6><p>' + event.date + '</p><p>' + event.startTime + '-' + event.endTime + '</p><p>' + event.description + '</p><p>' + event.typeOfFood + '</p><p>' + event.address + '</p>'))
         .addTo(map);
     });
     }
     /* Get all the events, then bind it to the scope */
     Events.getAll().then(function(response) {
       $scope.events = response.data;
+      for(let i=0;i<$scope.events.length;++i){
+        $scope.events[i].date = new Date($scope.events[i].date).toLocaleDateString();
+      }
       addEventToMap();
     }, function(error) {
       console.log('Unable to retrieve events:', error);
@@ -95,7 +98,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
 
           
           //New Event
-              console.log(newEvent);
+             // console.log(newEvent);
 
               Events.create(newEvent).then(function(response){
                   Events.getAll().then(function(response) {
@@ -134,7 +137,6 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
 
      $scope.showDetails = function(index) {
       $scope.showDetail = true;
-      $scope.events[index].date = new Date($scope.events[index].date).toLocaleDateString();
       $scope.detailedInfo = $scope.events[index];
     };
   }
