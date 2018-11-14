@@ -22,38 +22,6 @@ body {
     float: right;
     */
   }
-
-  #searchBar {
-    margin: 15px 10px;
-  }
-  
-  .tableWrapper {
-    max-height: 440px;
-    overflow: auto;
-  }
-  
-  .detailedInfoWrapper{
-    margin-top:10px;
-  }
-  
-  .listingForm{
-    margin:8px;
-  }
-  
-  .container .jumbotron, .container-fluid .jumbotron {
-    padding-right:9px;
-    padding-left:9px;
-  }
-  
-  .jumbotron {
-    padding: 3px;
-  }
-  
-
-#listing{
-    margin-top:29px; 
-}
-
 .marker {
     background-image: url('mapbox-icon.png');
     background-size: cover;
@@ -64,17 +32,13 @@ body {
   }
 
 .mapboxgl-popup {
-    max-width: 250px;
-    display: block;
-    margin-top: 5px;
-    height: 200px;
+    max-width: 200px;
   }
   
   .mapboxgl-popup-content {
-    overflow: auto;
     text-align: center;
-    font-family: 'Open Sans', sans-serif;    
-  }  
+    font-family: 'Open Sans', sans-serif;
+  }
 
   .modal {
     display: none; /* Hidden by default */
@@ -120,6 +84,9 @@ body {
 #listing {
     display: none;
     top: 50px;
+}
+#toggle1{
+    display:none;
 }
 
 
