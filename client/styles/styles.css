@@ -31,14 +31,17 @@ body {
     cursor: pointer;
   }
 
-.mapboxgl-popup {
-    max-width: 200px;
+  .mapboxgl-popup {
+    max-width: 240px;
+    margin-top: 5px;
+    max-height: 300px;
   }
   
   .mapboxgl-popup-content {
+    overflow: auto;
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
-  }
+    font-family: 'Open Sans', sans-serif;    
+  }  
 
   .modal {
     display: none; /* Hidden by default */
@@ -83,7 +86,7 @@ body {
 
 #listing {
     display: none;
-    top: 50px;
+    margin-top: 50px;
 }
 #toggle1{
     display:none;

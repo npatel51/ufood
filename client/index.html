@@ -127,52 +127,47 @@
 
   <main role='main' class="container">
       <div class="container col-md-12" id='map'></div>
-  </main>
 
-  <div class="container" id ="listing">
-      <div class="row">
-        <h1>Events</h1>
-      </div>
-      <div class="row" ng-controller="EventsController">
-        <div class="col-md-6">
-          <div class="input-group" id="searchBar">
-            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
-            <input type="text" class="form-control" placeholder="Search" ng-model="query">
-          </div>
-          <div class="tableWrapper">
-            <table class="table table-striped table-hover">
-              <tr>
-                <th>Date</th>
-                <th>Title</th>
-                <th></th>
-              </tr>
-              <tr ng-repeat="event in events | filter: query" ng-click="showDetails(events.indexOf(event))">
-                <td>{{event.date}}</td>
-                <td>{{event.title}}</td>
-                <td ng-click="deleteEvent(events.indexOf(event))"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="col-md-6 detailedInfoWrapper" >
-            <div class="card">
-              <div class="card-header"> Detailed Information </div>
-              <ul class="list-group list-group-flush"  ng-show="showDetail">
-                  <li class="list-group-item"> {{detailedInfo.title}}</li>
-                  <li class="list-group-item"> Description: {{detailedInfo.description}}</li>
-                  <li class="list-group-item">Time: {{detailedInfo.time}}</li>
-                  <li class="list-group-item">Date: {{detailedInfo.date}}</li>
-                  <li class="list-group-item">Type of Food: {{detailedInfo.typeOfFood}}</li>
-                  <li class="list-group-item">Address: {{detailedInfo.address}}</li>
-                </ul>
-              </div>
+      <div class="container" id="listing">
+          <h1>Events</h1>
+        <div class="row" ng-controller="EventsController">
+          <div class="col-md-6">
+            <div class="input-group" id="searchBar">
+              <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+              <input type="text" class="form-control" placeholder="Search" ng-model="query">
             </div>
+            <div class="tableWrapper">
+              <table class="table table-striped table-hover">
+                <tr>
+                  <th>Date</th>
+                  <th>Title</th>
+                  <th></th>
+                </tr>
+                <tr ng-repeat="event in events | filter: query" ng-click="showDetails(events.indexOf(event))">
+                  <td>{{event.date}}</td>
+                  <td>{{event.title}}</td>
+                  <td ng-click="deleteEvent(events.indexOf(event))"><span style="color: red;" class="glyphicon glyphicon-remove"></span></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-6 detailedInfoWrapper" >
+              <div class="card">
+                <div class="card-header"> Detailed Information </div>
+                <ul class="list-group list-group-flush"  ng-show="showDetail">
+                    <li class="list-group-item"> {{detailedInfo.title}}</li>
+                    <li class="list-group-item"> Description: {{detailedInfo.description}}</li>
+                    <li class="list-group-item"> Start Time: {{detailedInfo.startTime}}</li>
+                    <li class="list-group-item"> End Time: {{detailedInfo.endTime}}</li>
+                    <li class="list-group-item">Date: {{detailedInfo.date}}</li>
+                    <li class="list-group-item">Type of Food: {{detailedInfo.typeOfFood}}</li>
+                    <li class="list-group-item">Address: {{detailedInfo.address}}</li>
+                  </ul>
+                </div>
+              </div>
+          </div>
         </div>
-      </div>
-
-
-  
-
+  </main>
   <!-- Mapbox API for listings --------->
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
   <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>

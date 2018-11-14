@@ -134,6 +134,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
 
      $scope.showDetails = function(index) {
       $scope.showDetail = true;
+      $scope.events[index].date = new Date($scope.events[index].date).toLocaleDateString();
       $scope.detailedInfo = $scope.events[index];
     };
   }
