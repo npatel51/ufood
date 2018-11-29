@@ -105,10 +105,12 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
               Events.create(newEvent).then(function(response){
                   Events.getAll().then(function(response) {
                     $scope.events = response.data;
+                    for(let i=0;i<$scope.events.length;++i){
+                      $scope.events[i].date = new Date($scope.events[i].date).toLocaleDateString();
+                    }
                     // not needed if just reload the page
                     $("#myModal").modal('hide');   // hide the modal
                     $('#eventForm').trigger("reset"); // reset the form 
-    
                   }, function(error) {
                     console.log('Unable to retrieve events:', error);
                   });
