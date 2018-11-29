@@ -1,9 +1,7 @@
 //Events conroller
 
-angular.module('events').controller('EventsController', ['$scope', 'Events', 
-  function($scope, Events) {
-
-
+angular.module('events').controller('EventsController', ['$scope', 'Events','DTOptionsBuilder', 'DTColumnBuilder', 
+  function($scope, Events,DTOptionsBuilder,DTColumnBuilder) {
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9vZGJhYnkxIiwiYSI6ImNqbjRuOXluYTByN3Uza3Fvc2xuOTAzaXMifQ.E2kQtGJ19Y6ofltNnZaa3w';
 
     //Map
@@ -24,7 +22,6 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
     
     //Function to add event to the map
     function addEventToMap(){
-  //  console.log($scope.events);
     
     var geojson = {
       type: 'FeatureCollection',
@@ -52,6 +49,14 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
         $scope.events[i].date = new Date($scope.events[i].date).toLocaleDateString();
       }
       addEventToMap();
+
+        var vm = this;
+        vm.dtOptions = DTOptionsBuilder.fromSource($scope.events).withPaginationType('full_numbers');
+        vm.dtColumns = [
+            DTColumnBuilder.newColumn('date').withTitle('Date'),
+            DTColumnBuilder.newColumn('title').withTitle('Title'),
+        ];
+
     }, function(error) {
       console.log('Unable to retrieve events:', error);
     });
@@ -66,8 +71,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
     $scope.foodTypeSelected = function(item) {
       $scope.foodType = item;
     }
-
-    
+ 
     function formatTime(time){
       var [hour,min] = time.split(":");
       return (hour%12+12*(hour%12==0))+":"+min+""+(hour >= 12 ? 'PM' : 'AM');
@@ -98,8 +102,6 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
 
           
           //New Event
-             // console.log(newEvent);
-
               Events.create(newEvent).then(function(response){
                   Events.getAll().then(function(response) {
                     $scope.events = response.data;
@@ -120,7 +122,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
    
     };
     
-//Delete Event
+  //Delete Event
     $scope.deleteEvent = function($event,index) {
       $event.stopPropagation();
       Events.delete($scope.events[index]).then(function(response){
@@ -134,10 +136,12 @@ angular.module('events').controller('EventsController', ['$scope', 'Events',
       });
     
     };
-
-     $scope.showDetails = function(index) {
+      $scope.showDetails = function(index) {
       $scope.showDetail = true;
       $scope.detailedInfo = $scope.events[index];
     };
   }
 ]);
+
+
+

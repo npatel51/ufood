@@ -9,11 +9,14 @@ function toggle(){
     listView.style.display = "none";
     y.style.display = "block";
     x.style.display = "none";
-  }
-  else{
+  }else{
     map.style.display = "none";
     listView.style.display = "block";
     y.style.display = "none";
     x.style.display = "block";
   }
 }
+
+$(document).ready(function() {
+  $('#eventTable').DataTable();
+} );

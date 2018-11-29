@@ -65,7 +65,15 @@ body {
     border: 1px solid #888;
     width: 80%;
 }
+/* block event filter */
+#eventTable_filter{
+    display: none;
+  }
 
+#eventTable_length{
+    display: none;
+}
+  
 /* The Close Button */
 .close {
     color: #aaaaaa;
@@ -91,6 +99,7 @@ body {
 #toggle1{
     display:none;
 }
+
 
 
   
