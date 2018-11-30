@@ -56,30 +56,30 @@
           <form class="addEvent" id="eventForm" name="eventForm" ng-submit="addEvent()" >
               <fieldset class="form-group">
                 <div class="form-group">
-                  <label>Title</label>
+                  <label><strong>Title</strong></label>
                   <input type="text" class="form-control" ng-model="title" required >
                   <br>
-                  <label>Description</label>
+                  <label><strong>Description</strong></label>
                   <input type="text" class="form-control" ng-model="description" required>
                 </div>
       
                 <div class="form-group"> 
-                    <label>Date</label>
+                    <label><strong>Date</strong></label>
                     <input type="date" class="form-control" ng-model="date" required>
                 </div>
                 <div class="row"> 
                   <div class="form-group col-md-6">
-                    <label>Start Time</label>
+                    <label><strong>Start Time</strong></label>
                     <input id="startTime" type="time" class="form-control" ng-model="startTime" required>
                   </div>
                   <div class="form-group col-md-6">
-                    <label>End Time</label>
+                    <label><strong>End Time</strong></label>
                     <input id="endTime" type="time" class="form-control" ng-model="endTime" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <!-- add a dropdown for type of food-->
-                  <label> Type of Food </label>
+                  <label><strong>Type of Food</strong></label>
                   <div class="dropdown">
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         {{foodType}}
@@ -96,7 +96,7 @@
                 </div>
           
                 <div class="form-group">
-                  <label> Address </label>
+                  <label><strong>Address</strong></label>
                   <input type="text" class="form-control" placeholder=" 123 Main St, Gainesville,FL,32811" ng-model="address" required>
                 </div>  
                 <!-- coordinates are optional
