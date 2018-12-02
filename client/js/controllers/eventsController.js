@@ -1,6 +1,14 @@
 //Events conroller
+<<<<<<< HEAD
 angular.module('events').controller('EventsController', ['$scope', 'Events','DTOptionsBuilder', 'DTColumnBuilder', 
   function($scope, Events,DTOptionsBuilder,DTColumnBuilder) {
+=======
+
+angular.module('events').controller('EventsController', ['$scope', 'Events', 
+  function($scope, Events) {
+
+
+>>>>>>> 3b3f67ea38faf2dcde4fa614dd31cdbb1e4e5a9f
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9vZGJhYnkxIiwiYSI6ImNqbjRuOXluYTByN3Uza3Fvc2xuOTAzaXMifQ.E2kQtGJ19Y6ofltNnZaa3w';
 
     //Map
@@ -32,6 +40,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
     
     //Function to add event to the map
     function addEventToMap(){
+  //  console.log($scope.events);
     
     var geojson = {
       type: 'FeatureCollection',
@@ -48,7 +57,13 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
         .setPopup(new mapboxgl.Popup({ className:'popup',
             offset: 10, maxHeight: 14
           }) // add popups
-          .setHTML('<h6>' + event.title + '</h6><p>' + event.date + '</p><p>' + event.startTime + '-' + event.endTime + '</p><p>' + event.description + '</p><p>' + event.typeOfFood + '</p><p>' + event.address + '</p>'))
+          .setHTML(
+          '<h6><strong>' + event.title + '</h6></strong>' + 
+          '<strong>Date:</strong>' + '<p>' + event.date + '</p>' +
+          '<strong>Time:</strong>' + '<p>' + event.startTime + '-' + event.endTime + '</p>' +
+          '<strong>Description: </strong>' + '<p>' + event.description + '</p>' +
+          '<strong>Food Type: </strong>' + '<p>' + event.typeOfFood + '</p>' +
+          '<strong>Address: </strong>' + '<p>' + event.address + '</p>'))
         .addTo(map);
     });
     }
@@ -59,14 +74,6 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
         $scope.events[i].date = new Date($scope.events[i].date).toLocaleDateString();
       }
       addEventToMap();
-
-        var vm = this;
-        vm.dtOptions = DTOptionsBuilder.fromSource($scope.events).withPaginationType('full_numbers');
-        vm.dtColumns = [
-            DTColumnBuilder.newColumn('date').withTitle('Date'),
-            DTColumnBuilder.newColumn('title').withTitle('Title'),
-        ];
-
     }, function(error) {
       console.log('Unable to retrieve events:', error);
     });
@@ -81,7 +88,8 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
     $scope.foodTypeSelected = function(item) {
       $scope.foodType = item;
     }
- 
+
+    
     function formatTime(time){
       var [hour,min] = time.split(":");
       return (hour%12+12*(hour%12==0))+":"+min+""+(hour >= 12 ? 'PM' : 'AM');
@@ -113,6 +121,8 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
 
           
           //New Event
+             // console.log(newEvent);
+
               Events.create(newEvent).then(function(response){
                   Events.getAll().then(function(response) {
                     $scope.events = response.data;
@@ -135,7 +145,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
    
     };
     
-  //Delete Event
+//Delete Event
     $scope.deleteEvent = function($event,index) {
       $event.stopPropagation();
       Events.delete($scope.events[index]).then(function(response){
@@ -149,12 +159,10 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
       });
     
     };
-      $scope.showDetails = function(index) {
+
+     $scope.showDetails = function(index) {
       $scope.showDetail = true;
       $scope.detailedInfo = $scope.events[index];
     };
   }
 ]);
-
-
-
