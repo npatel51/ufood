@@ -20,3 +20,5 @@ function toggle(){
 $(document).ready(function() {
   $('#eventTable').DataTable();
 } );
+
+$("input").prop('required',true);

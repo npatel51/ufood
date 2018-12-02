@@ -1,5 +1,4 @@
 //Events conroller
-
 angular.module('events').controller('EventsController', ['$scope', 'Events','DTOptionsBuilder', 'DTColumnBuilder', 
   function($scope, Events,DTOptionsBuilder,DTColumnBuilder) {
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9vZGJhYnkxIiwiYSI6ImNqbjRuOXluYTByN3Uza3Fvc2xuOTAzaXMifQ.E2kQtGJ19Y6ofltNnZaa3w';
@@ -11,14 +10,25 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
       center: [-82.34196788596483,29.649893117253313],
       zoom: 14
     });
-    
-   
+       
+    // autocompladdress
     var geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken
     });
     map.addControl(geocoder);
-    // code from the next step will go here!
     
+     // geolocate control 
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+          enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }));
+
+    
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+    // code from the next step will go here!
     
     //Function to add event to the map
     function addEventToMap(){
@@ -67,7 +77,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
 
     $scope.foodType = "Select Diet Specification";
     $scope.foodTypes = ["Vegan","Vegetarian","Gluten Free","Nut Free","Paleo","Kosher","Halal","Not decided yet","Not decided yet,probably pizza"]; // add food type as needed here 
-
+    
     $scope.foodTypeSelected = function(item) {
       $scope.foodType = item;
     }
@@ -75,11 +85,12 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
     function formatTime(time){
       var [hour,min] = time.split(":");
       return (hour%12+12*(hour%12==0))+":"+min+""+(hour >= 12 ? 'PM' : 'AM');
+      return (hour%12+12*(hour%12==0))+":"+min+""+(hour >= 12 ? 'PM' : 'AM');
     }
 
     $scope.addEvent = function() {
        // translate address into geo-coordinates
-
+       $scope.address = $("#geocoder > div > input").val();
        new MapboxClient(mapboxgl.accessToken).geocodeForward($scope.address, function(err, data, res) {
         // data is the geocoding result as parsed JSON
         // res is the http response, including: status, headers and entity properties
@@ -110,7 +121,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
                     }
                     // not needed if just reload the page
                     $("#myModal").modal('hide');   // hide the modal
-                    $('#eventForm').trigger("reset"); // reset the form 
+                    $('#eventForm').trigger("reset"); // reset the form
                   }, function(error) {
                     console.log('Unable to retrieve events:', error);
                   });
@@ -118,7 +129,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
                   console.log('Unable to add new event:', error);
                 });
               } else { // error
-                  console.log(err);
+                  alert("Address is required");
               }
         });
    
