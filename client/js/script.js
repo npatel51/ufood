@@ -22,3 +22,6 @@ $(document).ready(function() {
 } );
 
 $("input").prop('required',true);
+
+var today = new Date().toISOString().split('T')[0];
+document.getElementById("datepicker").setAttribute('min', today);
