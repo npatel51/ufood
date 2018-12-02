@@ -1,14 +1,6 @@
 //Events conroller
-<<<<<<< HEAD
 angular.module('events').controller('EventsController', ['$scope', 'Events','DTOptionsBuilder', 'DTColumnBuilder', 
   function($scope, Events,DTOptionsBuilder,DTColumnBuilder) {
-=======
-
-angular.module('events').controller('EventsController', ['$scope', 'Events', 
-  function($scope, Events) {
-
-
->>>>>>> 3b3f67ea38faf2dcde4fa614dd31cdbb1e4e5a9f
     mapboxgl.accessToken = 'pk.eyJ1IjoiZm9vZGJhYnkxIiwiYSI6ImNqbjRuOXluYTByN3Uza3Fvc2xuOTAzaXMifQ.E2kQtGJ19Y6ofltNnZaa3w';
 
     //Map
