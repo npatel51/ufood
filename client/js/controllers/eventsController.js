@@ -30,12 +30,9 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
     });    
     document.getElementById('geocoder').appendChild(formGeocder.onAdd(map));
 
-    // code from the next step will go here!
-    
     //Function to add event to the map
     function addEventToMap(){
-  //  console.log($scope.events);
-    
+
     var geojson = {
       type: 'FeatureCollection',
       features: $scope.events
