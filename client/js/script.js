@@ -18,7 +18,8 @@ function toggle(){
 }
 
 $(document).ready(function() {
-  $('#eventTable').DataTable();
+  $.fn.dataTable.moment("MM/DD/YYYY");
+  $('#eventTable').DataTable({});
 } );
 
 $("input").prop('required',true);

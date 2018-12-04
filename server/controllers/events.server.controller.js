@@ -52,7 +52,9 @@ exports.delete = function(req, res) {
 
 /* Retreive all the events by time*/
 exports.list = function(req, res) {
-  Event.find({"date" : { $gte :new Date() }}).sort().exec(function(err,events){
+  var date = new Date();
+  date.setDate(date.getDate() - 1);
+  Event.find({"date" : {$gte :date}}).exec(function(err,events){
     if (err) {
       res.status(404).send(JSON.stringify({'message':'Something went wrong on our side :('}));
     }
