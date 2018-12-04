@@ -30,6 +30,8 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
     });    
     document.getElementById('geocoder').appendChild(formGeocder.onAdd(map));
 
+    //map navigation
+    map.addControl(new mapboxgl.NavigationControl());
     //Function to add event to the map
     function addEventToMap(){
 
