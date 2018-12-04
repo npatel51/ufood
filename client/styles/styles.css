@@ -2,10 +2,11 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #000
   }
 
   #map {
-    height: 565px;
+    height: 600px;
     margin-top: 54px;
     
     /*
@@ -102,7 +103,7 @@ body {
     display:none;
 }
 
-<<<<<<< HEAD
+
 #geocoder > div > input{
     font-size: 14px;
     width: 426px;
@@ -158,7 +159,7 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
 }
-=======
+
 .modal-title{
     font-weight:bold;
 }
@@ -169,4 +170,4 @@ input[type=submit] {
 }
 
   
->>>>>>> 3b3f67ea38faf2dcde4fa614dd31cdbb1e4e5a9f
+
