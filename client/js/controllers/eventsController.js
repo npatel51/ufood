@@ -10,7 +10,7 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
       center: [-82.34196788596483,29.649893117253313],
       zoom: 14
     });
-       
+
     // autocompladdress
     var geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken
@@ -25,8 +25,10 @@ angular.module('events').controller('EventsController', ['$scope', 'Events','DTO
       trackUserLocation: true
     }));
 
-    
-    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+    var formGeocder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken
+    });    
+    document.getElementById('geocoder').appendChild(formGeocder.onAdd(map));
 
     // code from the next step will go here!
     
