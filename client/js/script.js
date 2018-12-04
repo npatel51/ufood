@@ -24,5 +24,17 @@ $(document).ready(function() {
 
 $("input").prop('required',true);
 
-var today = new Date().toISOString().split('T')[0];
-document.getElementById("datepicker").setAttribute('min', today);
+function formatDate(date) {
+  var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return [year, month, day].join('-');
+}
+
+var today = new Date().toLocaleDateString().split(',')[0];
+document.getElementById("datepicker").setAttribute('min', formatDate(today));
