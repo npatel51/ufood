@@ -1,11 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #000
+    background-image: url("knitting250px.png");
+    background-repeat: repeat;
   }
 
   #map {
-    height: 600px;
+    height: 900px;
     margin-top: 54px;
     
     /*
