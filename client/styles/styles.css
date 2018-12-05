@@ -106,7 +106,6 @@ body {
 
 #geocoder > div > input{
     font-size: 14px;
-    width: 426px;
 }
 
 /* autocomplete styling  source: https://www.w3schools.com/howto/howto_js_autocomplete.asp*/
